@@ -1,0 +1,127 @@
+@import 'components/colors';
+@import "components/normalize";
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;500&display=swap');
+//variables
+  $size: 13px;
+  $margin: $size / 2;
+  $mobile: 40 * $size;
+  $tablet: 55 * $size;
+  $desktop: 100 * $size;
+  $width: $desktop;
+
+
+html {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: $size;
+  color: $primary_color;
+  font-weight: 300;
+}
+.wrapper{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+header {
+  flex: 1 1 5rem;
+  .container {
+    padding: $margin 0;
+    align-items: center;
+  }
+}
+.container {
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  max-width: $width;
+}
+
+.flex {
+  &-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.grid{
+  grid-template-columns: repeat( auto-fit, minmax(80px, 1fr) );
+  gap: 1rem;
+  justify-items: center;
+}
+.justify{
+  justify-content: space-between;
+  &-around{
+    justify-content: space-around;
+  }
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: $margin;
+  grid-row-gap: $margin;
+}
+h1,h2,h3{
+  font-weight: lighter;
+  position: relative;
+  color: $header_color;
+  margin-bottom: 1rem;
+  flex: 2 2 100%;
+  &::after{
+    position: absolute;
+    content: '';
+    bottom: -.5rem;
+    left: 0;
+    right: 0;
+    width: 80px;
+    height: 1px;
+    background-color: $secondary_color;
+  }
+}
+h1{
+  font-size: 3 * $size;
+  margin: $size 0 3 * $size 0;
+}
+h2{
+  font-size: 2 * $size;
+}
+.white{
+  color:white;
+  &::after{
+    background-color: #fff;
+  }
+}
+.block {
+  &__red {
+    background: $secondary_color;
+    padding: 2rem 4rem;
+    flex: 1 1 50%;
+    align-items: center;
+  }
+  &__right{
+    flex: 1 1 50%;
+  }
+}
+
+.col-50{
+  flex: 1 1 50%;
+}
+.btn{
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: $secondary_color;
+  color: $light_color;
+  box-shadow: 5px 5px 10px rgba(0,0,0,.25);
+  transition: all .3s ease-in-out;
+  &:hover{
+    color: $secondary_color;
+    background: $light_color;
+    transform: scale(95%);
+  }
+}
